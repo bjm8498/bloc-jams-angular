@@ -9,6 +9,7 @@
         $stateProvider
             .state('index', {
                 url:'/',
+                controller: 'LandingCtrl as landing',
                 templateUrl:'/templates/landing.html'
         })
             .state('landing', {
@@ -21,6 +22,7 @@
         }) 
             .state('collection', {
                 url: '/',
+                controller: 'CollectionCtrl as collection',
                 templateUrl: '/templates/collection.html'
         });
     }
