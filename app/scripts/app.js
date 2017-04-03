@@ -7,20 +7,17 @@
         });
         
         $stateProvider
-            .state('index', {
-                url:'/',
-                templateUrl:'/templates/landing.html'
-        })
+
             .state('landing', {
                 url: '/',
                 templateUrl: '/templates/landing.html'
         })
             .state('album', {
-                url: '/',
+                url: '/album',
                 templateUrl: '/templates/album.html'
         }) 
             .state('collection', {
-                url: '/',
+                url: '/collection',
                 templateUrl: '/templates/collection.html'
         });
     }
