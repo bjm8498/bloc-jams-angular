@@ -99,13 +99,14 @@
         *@desc Goes to the last song when previous button is clicked
         *@parma {Object} song
         */
-        SongPlayer.Previous = function(song) {
+        SongPlayer.previous = function(song) {
             var currentSongIndex = getSongIndex(SongPlayer.currentSong);
             currentSongIndex--;
             
             if(currentSongIndex < 0) {
-                currentBuzzObject.stop();
-                SongPlayer.currentSong.playing = null;
+                SongPlayer.stop(song);
+               /* currentBuzzObject.stop();
+                SongPlayer.currentSong.playing = null;*/
             }else{
                 var song = currentAlbum.songs[currentSongIndex];
                 setSong(song);
@@ -113,6 +114,28 @@
             }
         };
         
+        SongPlayer.next = function (song) {
+            var currentSongIndex = getSongIndex(SongPlayer.currentSong);
+            currentSongIndex++
+            
+            if(currentSongIndex > currentAlbum.songs.length) {
+                currentSongIndex = 0;
+                SongPlayer.currentSong.playing = null;
+            }else{
+                var song = currentAlbum.songs[currentSongIndex];
+                setSong(song);
+                playSong(song);
+            }
+            
+        }
+        
+        SongPlayer.stop = function (song) {
+            
+            if(currentBuzzObject) {
+                currentBuzzObject.stop();
+                SongPlayer.currentSong.playing = null;
+            }
+        }
     return SongPlayer;
     
 
