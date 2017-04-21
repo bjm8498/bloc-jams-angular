@@ -28,8 +28,10 @@
                     <div class="fill"></div>
                     <div class="thumb"></div>
                 </div>-->
-                <seek-bar></seek-bar>
-                <div class="current-time"></div>
+                <seek-bar value=" {{ playerBar.songPlayer.currentTime }} "
+                          max=" {{ playerBar.songPlayer.currentSong.duration}} "
+                          on-change="playerBar.songPlayer.setCurrentTime(value)"></seek-bar>
+                <div class="current-time"> {{ playerBar.songPlayer.currentTime }} </div>
                 <div class="total-time">{{ playerBar.songPlayer.currentSong.duration }}</div>
             </div>
         </div>
