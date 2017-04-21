@@ -5,6 +5,12 @@
         *@desc Empty object being initialized to map out the IIFE Songplayer.
         */
         var SongPlayer = {};
+        
+        /**
+        *@desc Current playback time (in seconds) of currently playing song
+        *@type Number
+        */
+        SongPlayer.currentTime = null;
         /**
         *@desc Local variable for Fixtures getAlbum method
         *@type Function
