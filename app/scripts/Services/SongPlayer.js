@@ -17,7 +17,7 @@
         *@desc Active sound object for Current Volume
         *@type {Object}
         */
-        SongPlayer.volume = null;
+        SongPlayer.volume = 70;
         
         /**
         *@desc Current playback time (in seconds) of currently playing song
@@ -142,11 +142,12 @@
             if(currentSongIndex > currentAlbum.songs.length) {
                 currentSongIndex = 0;
                 SongPlayer.currentSong.playing = null;
-            }else{
-                var song = currentAlbum.songs[currentSongIndex];
-                setSong(song);
-                playSong(song);
             }
+            
+            var song = currentAlbum.songs[currentSongIndex];
+            setSong(song);
+            playSong(song);
+            
             
         }
         
@@ -170,10 +171,19 @@
             }
         };
         
-        SongPlayer.setVolume = function () {
+        SongPlayer.setVolume = function (volume) {
+            SongPlayer.volume = volume;
+            var max = 100;
+            if(SongPlayer.volume > max || SongPlayer.volume < 0) {
+                SongPlayer.volume = 70;
+            }
             
-            
+            if(currentBuzzObject) {
+                currentBuzzObject.setVolume(volume);
+            }
         };
+        
+    SongPlayer.setVolume(SongPlayer.volume);
     return SongPlayer;
     
 
