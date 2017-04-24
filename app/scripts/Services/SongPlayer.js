@@ -141,7 +141,7 @@
             
             if(currentSongIndex > currentAlbum.songs.length) {
                 currentSongIndex = 0;
-                SongPlayer.currentSong.playing = null;
+                SongPlayer.stop(song);
             }
             
             var song = currentAlbum.songs[currentSongIndex];
@@ -149,7 +149,7 @@
             playSong(song);
             
             
-        }
+        };
         
         /**
         *@function setCurrentTime
