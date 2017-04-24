@@ -41,13 +41,12 @@
                 <div class="fill"></div>
                 <div class="thumb"></div>
             </div>-->
-            <seek-bar>
-            
-<!--
+            <seek-bar
             value="{{playerBar.songPlayer.volume}}"
-                      max="{{playerBar.songPlayer.setVolume.max}}"
-                      on-change="{{playerBar.songPlayer.setVolume}}"
--->
+            max=100
+            on-change="playerBar.songPlayer.setVolume(value)">
+            
+
             
             </seek-bar>
         </div>
